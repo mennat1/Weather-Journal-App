@@ -4,46 +4,75 @@ body{
 }
 
 #app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+ display: grid;
+    grid-template-rows: auto;
     justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    align-content: center;
+    margin: 3rem 1rem 1rem;
 }
 
 .holder{
+     text-align: center;
+    width: auto;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem 0;
+
+}
+.headline{
+     font: 800 2.5rem "Roboto Slab", serif;
+    text-decoration: underline overline rgb(253, 148, 192);
 
 }
 
+.zip
+.feel
 .entry{
-    background: rgba(59, 74, 107, .4);
+     background: rgba(238, 234, 234, 0.7);
+
 }
+
 
 #entryHolder{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(48px, 1fr);
+    padding: 0.5rem 0;
+    margin: 1rem 1rem 0;
+    justify-content: center;
+    align-content: center;
 
 }
 
 #date{
+    grid-area: 2 / 1 / span 1 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 #temp{
+    grid-area: 3 / 2 / span 2 / span 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
 
 }
 
 #content{
-
+    grid-area: 8 / 1 / span 1 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.headline {
 
-}
 .title{
+     font: 800 1.5rem "Roboto Slab", serif;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgb(70, 68, 68);
 
 }
 

@@ -15,13 +15,32 @@ app => Updates UI
 
 
 /* Global Variables */
-const apiKey = 'c2eeee4e304d9fab3b1641ecc2f342c5';
+const apiKey = '&appid=c2eeee4e304d9fab3b1641ecc2f342c5&units=metric';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();//ex: "10.4.2021"
-/* http://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=c2eeee4e304d9fab3b1641ecc2f342c5 */
 
+// Create a new date instance dynamically with JS
+// function getCurrentDate(){
+// 	let d = new Date();
+// 	let month = new Array();
+// 	month[0] = "January";
+// 	month[1] = "February";
+// 	month[2] = "March";
+// 	month[3] = "April";
+// 	month[4] = "May";
+// 	month[5] = "June";
+// 	month[6] = "July";
+// 	month[7] = "August";
+// 	month[8] = "September";
+// 	month[9] = "October";
+// 	month[10] = "November";
+// 	month[11] = "December";
+	
+// 	let newDate = d.getDate()+"."+month[d.getMonth()]+"."+d.getFullYear();
+// 	return newDate;
+// }
+// let newDate = getCurrentDate();
+let d = new Date();
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
 
 //document.getElementById('generate').addEventListener('click', performChainedActions);
 const generateBtn = document.getElementById('generate');
@@ -33,9 +52,9 @@ function performChainedActions(e){
 
 	e.preventDefault();
 	if(zipCode !== ''){
-		alert(zipCode);
+		//alert(zipCode);
 	    generateBtn.classList.remove('invalid');
-	    getWeatherData(`${baseUrl}?q=${zipCode}&appid=${apiKey}`)
+	    getWeatherData(`${baseUrl}?q=${zipCode}${apiKey}`)
 		.then((temperature)=>{postProjectData('/postProjectData', {"temperature":temperature, "feeling":feeling, "newDate":newDate})})
 		.then(()=>{getProjectDataAndUpdateUI('/getProjectData');})
 		.catch((error)=>{console.log("error", error);});
